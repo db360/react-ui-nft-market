@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 
 import Colors from "./assets/Colors";
+import HomePage from "./assets/components/HomePage";
 import NavMenu from "./assets/components/NavMenu";
 
 const AppEl = styled.div`
@@ -30,7 +31,7 @@ function App() {
         <Routes>
           <Route exact path="/store" element={<div>Store</div>} />
           <Route exact path="/product" element={<div>Product</div>} />
-          <Route exact path="/" element={<div>Home</div>} />
+          <Route exact path="/" element={<HomePage />} />
         </Routes>
       </Pages>
       <NavMenu />
