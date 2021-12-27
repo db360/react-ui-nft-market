@@ -28,12 +28,8 @@ const Pages = styled.div`
 `;
 
 function App() {
-  const { authenticate, isAuthenticated, user, isAuthenticating } = useMoralis();
+  const { isAuthenticated } = useMoralis();
 
-  console.log(authenticate);
-  console.log(isAuthenticated);
-  console.log(user);
-  console.log(isAuthenticated);
 
   return (
     <Router>

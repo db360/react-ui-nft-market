@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Colors from "../Colors";
 import FeaturedTab from "./FeaturedTab";
 import MyBidsList from "./MyBidsList";
+import Avatar from "./styled/Avatar";
 import SearchBar from "./styled/SearchBar.styled";
 import Tabs from "./styled/Tabs.styled";
 
@@ -35,10 +36,13 @@ const Title = styled.h1`
   text-align: center;
   margin-bottom: 2rem;
 `;
-const ButtonContainer = styled.div`
+const TopContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   margin-right: 1rem;
+  margin-left: 1rem;
+  gap:1rem;
 
 `;
 const LogoutButton = styled.button`
@@ -51,14 +55,23 @@ const LogoutButton = styled.button`
   font-weight: bold;
 
 `;
+const UsernameTitle = styled.span`
+  font-size: 1rem;
+  flex: 1;
+`;
+
+const Red = styled.span`
+  color: ${Colors.Primary};
+`;
 export default function HomePage() {
   const {user, logout} = useMoralis();
-
   return (
     <HomePageStyle>
-      <ButtonContainer>
+      <TopContainer>
+        <UsernameTitle>Hi, <Red>{user.id}</Red></UsernameTitle>
+        <Avatar />
         <LogoutButton onClick={logout}>Logout</LogoutButton>
-      </ButtonContainer>
+      </TopContainer>
 
       <Title>Polygon</Title>
       <SearchBar />

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Colors from "../Colors";
 import { RiSearchLine } from "react-icons/ri";
 import { BsThreeDots } from "react-icons/bs";
 import { FiArrowLeft } from "react-icons/fi";
