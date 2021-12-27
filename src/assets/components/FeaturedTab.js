@@ -77,7 +77,7 @@ export default function FeaturedTab() {
     <FeaturedTabStyle>
       {items.map((item) => {
         return (
-          <ItemStyle
+          <ItemStyle key={item.id}
             onClick={() => {
               nav("/product");
             }}

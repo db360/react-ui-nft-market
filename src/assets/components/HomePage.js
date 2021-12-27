@@ -1,4 +1,5 @@
 import React from "react";
+import { useMoralis } from "react-moralis";
 import styled from "styled-components";
 import Colors from "../Colors";
 import FeaturedTab from "./FeaturedTab";
@@ -34,9 +35,31 @@ const Title = styled.h1`
   text-align: center;
   margin-bottom: 2rem;
 `;
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
+
+`;
+const LogoutButton = styled.button`
+  background-color: ${Colors.Primary};
+  cursor: pointer;
+  border: none;
+  border-radius: 10%;
+  padding: 10px 15px;
+  color:white;
+  font-weight: bold;
+
+`;
 export default function HomePage() {
+  const {user, logout} = useMoralis();
+
   return (
     <HomePageStyle>
+      <ButtonContainer>
+        <LogoutButton onClick={logout}>Logout</LogoutButton>
+      </ButtonContainer>
+
       <Title>Polygon</Title>
       <SearchBar />
       <Tabs key={tabs.id} tabs={tabs} />

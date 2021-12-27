@@ -55,7 +55,7 @@ export default function NavMenu() {
         <FiHome />
       </Link>
       <Link
-        active={pathname === '/store'}
+        active={pathname === '/store' || pathname === "/product"}
         onClick={() => {
           nav("/store");
         }}

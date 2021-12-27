@@ -14,8 +14,9 @@ const Button = styled.button`
   padding: 0.5rem ${p=>p.np ? '1rem' : '3rem'};
   font-size: 1.1rem;
   ${p=>p.fw ? 'width: 100%;' : ''};
-  ${p=>p.disabled ? `opacity: 0; cursor: default;` : ''};
-  ${p=>p.flex ? 'display: flex;justify-content: center;align-content: center;column-gap:0.4rem;' : '' }
+  ${p=>p.disabled ? `opacity: 0.7; cursor: default;` : ''};
+  ${p=>p.flex ? 'display: flex;justify-content: center;align-content: center;column-gap:0.4rem;' : '' };
+  ${p=>p.login ? 'z-index: 50;height: 50px;width: 150px;border-radius: 10px;align-self: center;margin: auto;' : '' };
 `;
 
 export default Button;

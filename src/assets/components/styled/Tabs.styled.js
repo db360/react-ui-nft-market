@@ -42,12 +42,13 @@ const ContentStyle = styled.div`
 export default function Tabs({tabs}) {
   const [CurrentTab, setCurrentTab] = useState(tabs[0]);
 
+  const number = [10, 20, 30, 40, 50]
   return (
     <TabsStyles>
       <TitleContainerStyle>
         {tabs.map((tab) => {
           return (
-            <TittleStyle onClick={()=>{
+            <TittleStyle key={number.toString()} onClick={()=>{
                 if(CurrentTab.id !== tab ) {
                     setCurrentTab(tab);
                 }

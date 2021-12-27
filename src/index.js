@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { MoralisProvider } from "react-moralis";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createGlobalStyle } from "styled-components";
@@ -24,14 +25,19 @@ a{
 a:visisted{
   color: #070710;
 }
-   
+
 `;
+
+const public_id = process.env.REACT_APP_NEXT_PUBLIC_APP_ID;
+const server_url = process.env.REACT_APP_NEXT_PUBLIC_SERVER_URL;
 
 ReactDOM.render(
   <React.StrictMode>
     <React.Fragment>
       <GlobalStyle />
-      <App />
+      <MoralisProvider appId={public_id} serverUrl={server_url}>
+        <App />
+      </MoralisProvider>
     </React.Fragment>
   </React.StrictMode>,
   document.getElementById("root")
