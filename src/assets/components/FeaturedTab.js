@@ -11,6 +11,13 @@ import image4 from "../images/image4.png";
 import Colors from "../Colors";
 import Img from "./styled/Img.styled";
 
+const items = [
+  { id: 1, title: "Universo 34", subTitle: "Maketi", image: image1 },
+  { id: 2, title: "Holy", subTitle: "Lea Kovaseva", image: image2 },
+  { id: 3, title: "Title 3", subTitle: "Subtitle 3", image: image3 },
+  { id: 4, title: "Title 4", subTitle: "Subtitle 4", image: image4 },
+];
+
 const FeaturedTabStyle = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -38,8 +45,9 @@ const SubTitleStyle = styled.span`
   font-sie: 1rem;
 `;
 const ShowMore = styled.span`
-  text-alingn: center;
+  text-align: center;
   position: absolute;
+  cursor: pointer;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -51,9 +59,39 @@ const ShowMore = styled.span`
   border-radius: 12px;
 `;
 const BottomFade = styled.span`
-    
+  text-align: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 25%;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0),
+    ${Colors.Background}
+  );
 `;
 
 export default function FeaturedTab() {
-  return <FeaturedTabStyle> FEATURED TAB</FeaturedTabStyle>;
+  const nav = useNavigate();
+  return (
+    <FeaturedTabStyle>
+      {items.map((item) => {
+        return (
+          <ItemStyle
+            onClick={() => {
+              nav("/product");
+            }}
+          >
+            <Img src={item.image} />
+            <TitleStyle>{item.title}</TitleStyle>
+            <SubTitleStyle>{item.subTitle}</SubTitleStyle>
+          </ItemStyle>
+        );
+      })}
+      <BottomFade />
+      <ShowMore>
+        <BiChevronDown /> Show More
+      </ShowMore>
+    </FeaturedTabStyle>
+  );
 }

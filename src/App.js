@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Colors from "./assets/Colors";
 import HomePage from "./assets/components/HomePage";
 import NavMenu from "./assets/components/NavMenu";
+import StorePage from "./assets/components/StorePage";
 
 const AppEl = styled.div`
   display: flex;
@@ -29,7 +30,7 @@ function App() {
     <AppEl>
       <Pages>
         <Routes>
-          <Route exact path="/store" element={<div>Store</div>} />
+          <Route exact path="/store" element={<StorePage />} />
           <Route exact path="/product" element={<div>Product</div>} />
           <Route exact path="/" element={<HomePage />} />
         </Routes>
